@@ -1,6 +1,5 @@
 const Post = require('../models/Post');
 
-// Create Post
 const createPost = async (req, res) => {
   try {
     const post = new Post(req.body);
@@ -11,7 +10,6 @@ const createPost = async (req, res) => {
   }
 };
 
-// Get Post by ID
 const getPost = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -21,7 +19,6 @@ const getPost = async (req, res) => {
   }
 };
 
-// Update Post
 const updatePost = async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -31,7 +28,6 @@ const updatePost = async (req, res) => {
   }
 };
 
-// Delete Post
 const deletePost = async (req, res) => {
   try {
     await Post.findByIdAndDelete(req.params.id);
