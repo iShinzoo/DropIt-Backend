@@ -1,14 +1,14 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./configurations/db");
+import express, { json } from "express";
+import { config } from "dotenv";
+import connectDB from "./configurations/db";
 
-dotenv.config();
+config();
 
 connectDB();
 
 const app = express();
 
-app.use(express.json());
+app.use(json());
 app.use("/api/auth", require("./routes/authRoutes"));
 
-module.exports = app;
+export default app;
