@@ -6,9 +6,11 @@ config();
 
 connectDB();
 
+const authRoutes=require("./services/authentication/routes/authRoutes")
+
 const app = express();
 
 app.use(json());
-app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/auth", authRoutes);
 
 export default app;
